@@ -1,5 +1,91 @@
 import * as ee from "react";
 import { forwardRef as Et, useContext as _t, Children as Yr, cloneElement as Wr } from "react";
+const W = (e) => {
+  var T, f, P, w, j, _, x, R, M, l, D, k, ue, ae, le, fe, ie, K, J, Z, ce, oe, ne;
+  const { direction: r, reverse: n, gap: a, crossGap: i, border: c, borderRadius: m, axis: u } = e, { solid: v, position: b = "all", color: o, shape: h = "solid" } = c ?? {};
+  return e ? {
+    width: e == null ? void 0 : e.width,
+    minWidth: e == null ? void 0 : e.minWidth,
+    maxWidth: e == null ? void 0 : e.maxWidth,
+    height: e == null ? void 0 : e.height,
+    minHeight: e == null ? void 0 : e.minHeight,
+    maxHeight: e == null ? void 0 : e.maxHeight,
+    //
+    position: e.positionType,
+    top: (T = e == null ? void 0 : e.position) == null ? void 0 : T.top,
+    bottom: (f = e.position) == null ? void 0 : f.bottom,
+    left: (P = e.position) == null ? void 0 : P.left,
+    right: (w = e.position) == null ? void 0 : w.right,
+    transform: !!u && `translate(${typeof (u == null ? void 0 : u.x) == "number" ? (u == null ? void 0 : u.x) + "px" : (u == null ? void 0 : u.x) ?? 0}, ${typeof (u == null ? void 0 : u.y) == "number" ? (u == null ? void 0 : u.y) + "px" : (u == null ? void 0 : u.y) ?? 0})`,
+    //
+    display: e == null ? void 0 : e.display,
+    flexDirection: n && e.direction ? e.direction + "-reverse" : e.direction,
+    alignItems: e.align,
+    justifyContent: e == null ? void 0 : e.crossAlign,
+    alignContent: e == null ? void 0 : e.alignContent,
+    alignSelf: e == null ? void 0 : e.alignSelf,
+    flex: e.flex,
+    flexWrap: e == null ? void 0 : e.wrap,
+    flexBasis: e == null ? void 0 : e.basis,
+    flexFlow: e == null ? void 0 : e.flow,
+    flexGrow: e == null ? void 0 : e.grow,
+    flexShrink: e == null ? void 0 : e.shrink,
+    rowGap: r === "column" && a || r === "row" && i || a,
+    columnGap: r === "column" && i || r === "row" && a || i,
+    order: e.order,
+    //
+    background: e == null ? void 0 : e.background,
+    backgroundColor: e == null ? void 0 : e.backgroundColor,
+    backgroundRepeat: (e == null ? void 0 : e.backgroundRepeat) ?? "no-repeat",
+    backgroundSize: (e == null ? void 0 : e.backgroundSize) ?? "cover",
+    backgroundPosition: (e == null ? void 0 : e.backgroundPosition) ?? "center",
+    backgroundClip: e == null ? void 0 : e.backgroundClip,
+    backgroundImage: (e == null ? void 0 : e.backgroundImageUrl) && `url(${e == null ? void 0 : e.backgroundImageUrl})`,
+    boxShadow: e != null && e.shadow ? `${(j = e == null ? void 0 : e.shadow) == null ? void 0 : j.x}px ${(_ = e == null ? void 0 : e.shadow) == null ? void 0 : _.y}px ${(x = e == null ? void 0 : e.shadow) == null ? void 0 : x.blur}px ${(R = e == null ? void 0 : e.shadow) == null ? void 0 : R.color}` : void 0,
+    filter: !!e.filter && `blur(${e.filter})`,
+    zIndex: e == null ? void 0 : e.zIndex,
+    transition: (e == null ? void 0 : e.transitionTime) && `${e == null ? void 0 : e.transitionTime}s ease-in-out`,
+    cursor: e == null ? void 0 : e.cursor,
+    opacity: e.opacity,
+    userSelect: e.userSelect,
+    //
+    border: v && b === "all" ? `${v}px ${h} ${o}` : void 0,
+    borderBottom: b === "bottom" ? `${v}px ${h} ${o}` : void 0,
+    borderTop: b === "top" ? `${v}px ${h} ${o}` : void 0,
+    borderRight: b === "right" ? `${v}px ${h} ${o}` : void 0,
+    borderLeft: b === "left" ? `${v}px ${h} ${o}` : void 0,
+    borderRadius: m,
+    //
+    paddingTop: ((M = e == null ? void 0 : e.padding) == null ? void 0 : M.all) || ((l = e == null ? void 0 : e.padding) == null ? void 0 : l.vertical) || ((D = e == null ? void 0 : e.padding) == null ? void 0 : D.top),
+    paddingBottom: ((k = e == null ? void 0 : e.padding) == null ? void 0 : k.all) || ((ue = e == null ? void 0 : e.padding) == null ? void 0 : ue.vertical) || ((ae = e == null ? void 0 : e.padding) == null ? void 0 : ae.bottom),
+    paddingRight: ((le = e == null ? void 0 : e.padding) == null ? void 0 : le.all) || ((fe = e == null ? void 0 : e.padding) == null ? void 0 : fe.horizontal) || ((ie = e == null ? void 0 : e.padding) == null ? void 0 : ie.right),
+    paddingLeft: ((K = e == null ? void 0 : e.padding) == null ? void 0 : K.all) || ((J = e == null ? void 0 : e.padding) == null ? void 0 : J.horizontal) || ((Z = e == null ? void 0 : e.padding) == null ? void 0 : Z.left),
+    //
+    overflowX: (ce = e == null ? void 0 : e.scroll) == null ? void 0 : ce.x,
+    overflowY: (oe = e == null ? void 0 : e.scroll) == null ? void 0 : oe.y,
+    listStyle: "none",
+    "::-webkit-scrollbar": {
+      display: (ne = e == null ? void 0 : e.scroll) != null && ne.bar ? "flex" : "none",
+      width: "4px",
+      height: "4px"
+    },
+    "::-webkit-scrollbar-track": {
+      backgroundColor: "transparent"
+    },
+    "::-webkit-scrollbar-thumb": {
+      backgroundColor: "#cccccc",
+      borderRadius: "100px"
+    },
+    "::-webkit-scrollbar-thumb:hover": {
+      background: "#e2e2e2"
+    },
+    "::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment": {
+      width: 0,
+      height: 0,
+      backgroundColor: "transparent"
+    }
+  } : {};
+};
 function St(e) {
   if (e.__esModule)
     return e;
@@ -1727,92 +1813,7 @@ const Ie = (e) => {
   "userSelect",
   "transitionTime",
   "opacity"
-], In = ["border", "borderRadius"], Mn = ["padding", "margin"], Fn = ["scroll"], jn = ["active", "hover", "disabled"], Dn = ["mediaQuery"], W = (e) => {
-  var T, f, P, w, j, _, x, R, M, l, D, k, ue, ae, le, fe, ie, K, J, Z, ce, oe, ne;
-  const { direction: r, reverse: n, gap: a, crossGap: i, border: c, borderRadius: m, axis: u } = e, { solid: v, position: b = "all", color: o, shape: h = "solid" } = c ?? {};
-  return e ? {
-    width: e == null ? void 0 : e.width,
-    minWidth: e == null ? void 0 : e.minWidth,
-    maxWidth: e == null ? void 0 : e.maxWidth,
-    height: e == null ? void 0 : e.height,
-    minHeight: e == null ? void 0 : e.minHeight,
-    maxHeight: e == null ? void 0 : e.maxHeight,
-    //
-    position: e.positionType,
-    top: (T = e == null ? void 0 : e.position) == null ? void 0 : T.top,
-    bottom: (f = e.position) == null ? void 0 : f.bottom,
-    left: (P = e.position) == null ? void 0 : P.left,
-    right: (w = e.position) == null ? void 0 : w.right,
-    transform: !!u && `translate(${typeof (u == null ? void 0 : u.x) == "number" ? (u == null ? void 0 : u.x) + "px" : (u == null ? void 0 : u.x) ?? 0}, ${typeof (u == null ? void 0 : u.y) == "number" ? (u == null ? void 0 : u.y) + "px" : (u == null ? void 0 : u.y) ?? 0})`,
-    //
-    display: e == null ? void 0 : e.display,
-    flexDirection: n && e.direction ? e.direction + "-reverse" : e.direction,
-    alignItems: e.align,
-    justifyContent: e == null ? void 0 : e.crossAlign,
-    alignContent: e == null ? void 0 : e.alignContent,
-    alignSelf: e == null ? void 0 : e.alignSelf,
-    flex: e.flex,
-    flexWrap: e == null ? void 0 : e.wrap,
-    flexBasis: e == null ? void 0 : e.basis,
-    flexFlow: e == null ? void 0 : e.flow,
-    flexGrow: e == null ? void 0 : e.grow,
-    flexShrink: e == null ? void 0 : e.shrink,
-    rowGap: r === "column" && a || r === "row" && i || a,
-    columnGap: r === "column" && i || r === "row" && a || i,
-    order: e.order,
-    //
-    background: e == null ? void 0 : e.background,
-    backgroundColor: e == null ? void 0 : e.backgroundColor,
-    backgroundRepeat: (e == null ? void 0 : e.backgroundRepeat) ?? "no-repeat",
-    backgroundSize: (e == null ? void 0 : e.backgroundSize) ?? "cover",
-    backgroundPosition: (e == null ? void 0 : e.backgroundPosition) ?? "center",
-    backgroundClip: e == null ? void 0 : e.backgroundClip,
-    backgroundImage: (e == null ? void 0 : e.backgroundImageUrl) && `url(${e == null ? void 0 : e.backgroundImageUrl})`,
-    boxShadow: e != null && e.shadow ? `${(j = e == null ? void 0 : e.shadow) == null ? void 0 : j.x}px ${(_ = e == null ? void 0 : e.shadow) == null ? void 0 : _.y}px ${(x = e == null ? void 0 : e.shadow) == null ? void 0 : x.blur}px ${(R = e == null ? void 0 : e.shadow) == null ? void 0 : R.color}` : void 0,
-    filter: !!e.filter && `blur(${e.filter})`,
-    zIndex: e == null ? void 0 : e.zIndex,
-    transition: (e == null ? void 0 : e.transitionTime) && `${e == null ? void 0 : e.transitionTime}s ease-in-out`,
-    cursor: e == null ? void 0 : e.cursor,
-    opacity: e.opacity,
-    userSelect: e.userSelect,
-    //
-    border: v && b === "all" ? `${v}px ${h} ${o}` : void 0,
-    borderBottom: b === "bottom" ? `${v}px ${h} ${o}` : void 0,
-    borderTop: b === "top" ? `${v}px ${h} ${o}` : void 0,
-    borderRight: b === "right" ? `${v}px ${h} ${o}` : void 0,
-    borderLeft: b === "left" ? `${v}px ${h} ${o}` : void 0,
-    borderRadius: m,
-    //
-    paddingTop: ((M = e == null ? void 0 : e.padding) == null ? void 0 : M.all) || ((l = e == null ? void 0 : e.padding) == null ? void 0 : l.vertical) || ((D = e == null ? void 0 : e.padding) == null ? void 0 : D.top),
-    paddingBottom: ((k = e == null ? void 0 : e.padding) == null ? void 0 : k.all) || ((ue = e == null ? void 0 : e.padding) == null ? void 0 : ue.vertical) || ((ae = e == null ? void 0 : e.padding) == null ? void 0 : ae.bottom),
-    paddingRight: ((le = e == null ? void 0 : e.padding) == null ? void 0 : le.all) || ((fe = e == null ? void 0 : e.padding) == null ? void 0 : fe.horizontal) || ((ie = e == null ? void 0 : e.padding) == null ? void 0 : ie.right),
-    paddingLeft: ((K = e == null ? void 0 : e.padding) == null ? void 0 : K.all) || ((J = e == null ? void 0 : e.padding) == null ? void 0 : J.horizontal) || ((Z = e == null ? void 0 : e.padding) == null ? void 0 : Z.left),
-    //
-    overflowX: (ce = e == null ? void 0 : e.scroll) == null ? void 0 : ce.x,
-    overflowY: (oe = e == null ? void 0 : e.scroll) == null ? void 0 : oe.y,
-    listStyle: "none",
-    "::-webkit-scrollbar": {
-      display: (ne = e == null ? void 0 : e.scroll) != null && ne.bar ? "flex" : "none",
-      width: "4px",
-      height: "4px"
-    },
-    "::-webkit-scrollbar-track": {
-      backgroundColor: "transparent"
-    },
-    "::-webkit-scrollbar-thumb": {
-      backgroundColor: "#cccccc",
-      borderRadius: "100px"
-    },
-    "::-webkit-scrollbar-thumb:hover": {
-      background: "#e2e2e2"
-    },
-    "::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment": {
-      width: 0,
-      height: 0,
-      backgroundColor: "transparent"
-    }
-  } : {};
-}, V = (e) => W(e), Me = ({
+], In = ["border", "borderRadius"], Mn = ["padding", "margin"], Fn = ["scroll"], jn = ["active", "hover", "disabled"], Dn = ["mediaQuery"], V = (e) => W(e), Me = ({
   mediaQuery: e,
   direction: r
 }) => {
@@ -2337,5 +2338,6 @@ pr.Column = zn;
 pr.Row = Vn;
 export {
   mr as P,
-  pr as V
+  pr as V,
+  W as ViewTheme
 };

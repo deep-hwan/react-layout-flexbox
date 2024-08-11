@@ -131,5 +131,5 @@ export type MediaQueryType = {
         } & ViewTypes & EffectType;
     };
 };
-export type ViewFlexType = ViewTypes & EffectType & MediaQueryType;
+export type ViewType = ViewTypes & EffectType & MediaQueryType;
 export {};

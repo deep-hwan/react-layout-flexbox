@@ -1,7 +1,7 @@
 import { ViewTheme } from "./view";
-import { MediaQueryType, ViewFlexType } from "../types/view";
+import { MediaQueryType, ViewType } from "../types/view";
 
-const ViewThemes = (props: ViewFlexType & { direction?: "column" | "row" }) =>
+const ViewThemes = (props: ViewType & { direction?: "column" | "row" }) =>
   ViewTheme(props);
 
 export const extandedMediaQuery = ({

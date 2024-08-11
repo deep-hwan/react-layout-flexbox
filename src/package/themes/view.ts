@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { Interpolation, Theme } from "@emotion/react";
-import { ViewFlexType } from "../types/view";
+import { ViewType } from "../types/view";
 
 export const ViewTheme = (
-  props: ViewFlexType & { direction?: "row" | "column" }
+  props: ViewType & { direction?: "row" | "column" }
 ) => {
   const { direction, reverse, gap, crossGap, border, borderRadius, axis } =
     props;

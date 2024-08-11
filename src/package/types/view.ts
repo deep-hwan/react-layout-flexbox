@@ -183,4 +183,4 @@ export type MediaQueryType = {
 
 //
 //
-export type ViewFlexType = ViewTypes & EffectType & MediaQueryType;
+export type ViewType = ViewTypes & EffectType & MediaQueryType;

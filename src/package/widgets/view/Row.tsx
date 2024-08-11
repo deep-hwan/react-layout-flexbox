@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { HTMLAttributes, ReactNode } from "react";
-import { ViewFlexType } from "../../types/view";
+import { ViewType } from "../../types/view";
 import { extandedProps } from "../../utils/extandedProps";
 import { ViewTheme } from "../../themes/view";
 import { extandedMediaQuery } from "../../themes/mediaQuery";
@@ -9,7 +9,7 @@ import { extandedMediaQuery } from "../../themes/mediaQuery";
 type Types = {
   as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
   children: ReactNode;
-} & ViewFlexType &
+} & ViewType &
   HTMLAttributes<
     | HTMLDivElement
     | HTMLFormElement

@@ -44,7 +44,7 @@ export default function App() {
         position={{ top: 0, left: 0 }}
         padding={{ all: 20 }}
       >
-        6
+        sadsd
       </P.Fixed>
 
       <P.Absolute

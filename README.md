@@ -41,3 +41,17 @@ Use the View and Position type layout widgets to complete a quick UI
   - P.Sticky : positionType sticky layout
 
   position: {left: number | string, right: number | string, top: number | string, bottom: number | string} can be adjusted through
+
+---
+
+## License
+
+MIT © Deepfactory, Inc. See [LICENSE](LICENSE) for details.
+
+<!-- BOTTOM LOGO -->
+<a title="DEEP" href="https://www.deepfactory.kr/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./src/assets/deep-white.png">
+    <img alt="Toss" src="./src/assets/deep-dark.png" width="120">
+  </picture>
+</a>

@@ -4,13 +4,13 @@ import { Interpolation, Theme } from "@emotion/react";
 import { extandedProps } from "../../utils/extandedProps";
 import { ViewTheme } from "../../themes/view";
 import { extandedMediaQuery } from "../../themes/mediaQuery";
-import { ViewFlexType } from "../../types/view";
+import { ViewType } from "../../types/view";
 
 //
 type Types = {
   as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
   children: ReactNode;
-} & Omit<ViewFlexType, "positionType"> &
+} & Omit<ViewType, "positionType"> &
   HTMLAttributes<
     | HTMLDivElement
     | HTMLFormElement
