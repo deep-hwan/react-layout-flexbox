@@ -43,6 +43,13 @@ Use the View and Position type layout widgets to complete a quick UI
 
   position: {left: number | string, right: number | string, top: number | string, bottom: number | string} can be adjusted through
 
+- Type
+
+  - ViewType
+
+- Theme
+  - ViewTheme
+
 ---
 
 ## License
