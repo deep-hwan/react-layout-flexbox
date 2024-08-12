@@ -31,6 +31,7 @@ Use the View and Position type layout widgets to complete a quick UI
 
   - V.Column : Vertical Layout
   - V.Row : Horizontal layout
+  - V.ScrollDragHorizontal : Horizontal layout with touch scrolling
 
   The default positionType is relative and can be handled as one of the positionType: "static" | "relative" | "fixed" | "absolute" | "sticky"
 

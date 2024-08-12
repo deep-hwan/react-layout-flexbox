@@ -14,9 +14,15 @@ export default function App() {
         hover={{ backgroundColor: "#aaa" }}
         active={{ opacity: 0.3 }}
         transitionTime={0.3}
+        margin={{ bottom: 50 }}
         gap={80}
         mediaQuery={{
-          s1280: { padding: { all: 150 }, gap: 210, positionType: "static" },
+          s1280: {
+            padding: { all: 150 },
+            gap: 210,
+            positionType: "static",
+            margin: { bottom: 100 },
+          },
           s1080: {
             backgroundColor: "red",
             direction: "row",
@@ -65,77 +71,79 @@ export default function App() {
         5
       </P.Absolute>
 
-      <V.Row
-        as="nav"
-        backgroundColor="#f0f0f0"
-        borderRadius={20}
-        padding={{ vertical: 20, horizontal: 40 }}
-        hover={{ backgroundColor: "#aaa" }}
-        active={{ opacity: 0.3 }}
-        transitionTime={0.3}
-        gap={50}
-        mediaQuery={{
-          s1280: {
-            padding: { all: 20 },
-            gap: 20,
-            hover: { backgroundColor: "blue" },
-          },
-          s1080: {
-            height: "500px",
-            crossAlign: "space-between",
-            backgroundColor: "red",
-            gap: 25,
-            direction: "column",
-          },
-          s600: {
-            display: "flex",
-            hover: { backgroundColor: "#000" },
-            backgroundColor: "blue",
+      <V.ScrollDragHorizontal gap={50}>
+        <V.Row
+          as="nav"
+          backgroundColor="#f0f0f0"
+          borderRadius={20}
+          padding={{ vertical: 20, horizontal: 40 }}
+          hover={{ backgroundColor: "#aaa" }}
+          active={{ opacity: 0.3 }}
+          transitionTime={0.3}
+          gap={50}
+          mediaQuery={{
+            s1280: {
+              padding: { all: 20 },
+              gap: 20,
+              hover: { backgroundColor: "blue" },
+            },
+            s1080: {
+              height: "500px",
+              crossAlign: "space-between",
+              backgroundColor: "red",
+              gap: 25,
+              direction: "column",
+            },
+            s600: {
+              display: "flex",
+              hover: { backgroundColor: "#000" },
+              backgroundColor: "blue",
 
-            padding: { all: 100 },
-          },
-        }}
-        onClick={() => {}}
-      >
-        <p>3</p>
-        <p>4</p>
-      </V.Row>
+              padding: { all: 100 },
+            },
+          }}
+          onClick={() => {}}
+        >
+          <p>3</p>
+          <p>4</p>
+        </V.Row>
 
-      <V.Row
-        as="nav"
-        backgroundColor="#f0f0f0"
-        borderRadius={20}
-        padding={{ vertical: 200, horizontal: 40 }}
-        hover={{ backgroundColor: "#aaa" }}
-        active={{ opacity: 0.3 }}
-        transitionTime={0.3}
-        gap={50}
-        mediaQuery={{
-          s1280: {
-            padding: { all: 20 },
-            gap: 20,
-            hover: { backgroundColor: "blue" },
-          },
-          s1080: {
-            height: "500px",
-            crossAlign: "space-between",
-            backgroundColor: "red",
-            gap: 25,
-            direction: "column",
-          },
-          s600: {
-            display: "flex",
-            hover: { backgroundColor: "#000" },
-            backgroundColor: "blue",
+        <V.Row
+          as="nav"
+          backgroundColor="#f0f0f0"
+          borderRadius={20}
+          padding={{ vertical: 200, horizontal: 40 }}
+          hover={{ backgroundColor: "#aaa" }}
+          active={{ opacity: 0.3 }}
+          transitionTime={0.3}
+          gap={50}
+          mediaQuery={{
+            s1280: {
+              padding: { all: 20 },
+              gap: 20,
+              hover: { backgroundColor: "blue" },
+            },
+            s1080: {
+              height: "500px",
+              crossAlign: "space-between",
+              backgroundColor: "red",
+              gap: 25,
+              direction: "column",
+            },
+            s600: {
+              display: "flex",
+              hover: { backgroundColor: "#000" },
+              backgroundColor: "blue",
 
-            padding: { all: 100 },
-          },
-        }}
-        onClick={() => {}}
-      >
-        <p>3</p>
-        <p>4</p>
-      </V.Row>
+              padding: { all: 100 },
+            },
+          }}
+          onClick={() => {}}
+        >
+          <p>3</p>
+          <p>4</p>
+        </V.Row>
+      </V.ScrollDragHorizontal>
     </V.Column>
   );
 }
