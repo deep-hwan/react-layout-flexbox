@@ -55,6 +55,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <section
         css={globel_theme}
         className="flex-column flex-section"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -63,7 +64,12 @@ export default function Row(props: Types & { [key: string]: any }) {
 
   if (as === "div")
     return (
-      <div css={globel_theme} className="flex-column" {...elementProps}>
+      <div
+        css={globel_theme}
+        className="flex-column"
+        onClick={onClick}
+        {...elementProps}
+      >
         {children}
       </div>
     );
@@ -73,6 +79,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <nav
         css={globel_theme}
         className="flex-column flex-column-nav"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -84,6 +91,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <aside
         css={globel_theme}
         className="flex-column flex-column-aside"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -95,6 +103,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <form
         css={globel_theme}
         className="flex-column flex-column-form"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -106,6 +115,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <ul
         css={globel_theme}
         className="flex-column flex-column-ul"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -117,6 +127,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <li
         css={globel_theme}
         className="flex-column flex-column-li"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
@@ -128,6 +139,7 @@ export default function Row(props: Types & { [key: string]: any }) {
       <ol
         css={globel_theme}
         className="flex-column flex-column-ol"
+        onClick={onClick}
         {...elementProps}
       >
         {children}
