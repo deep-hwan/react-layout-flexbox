@@ -21,12 +21,15 @@ type Types = {
   >;
 
 //
-export default function Fixed(props: Types & { [key: string]: any }) {
-  const { as = "div", children, onClick, ...restProps } = props;
-  const { direction, active, hover, disabled, mediaQuery } = props;
-
-  const { elementProps } = extandedProps(restProps);
-  const mq_styles = extandedMediaQuery({ mediaQuery, direction });
+export default function Fixed({
+  as = "div",
+  children,
+  direction,
+  onClick,
+  ...props
+}: Types & { [key: string]: any }) {
+  const { elementProps } = extandedProps(props);
+  const mq_styles = extandedMediaQuery({ mediaQuery: props.mediaQuery });
 
   const view_theme = ViewTheme({
     ...props,
@@ -44,9 +47,12 @@ export default function Fixed(props: Types & { [key: string]: any }) {
   const globel_theme = {
     ...(view_theme as any),
     ...mq_styles,
-    "&:hover": ViewTheme({ hover: hover }),
-    "&:active": ViewTheme({ active: active }),
-    "&:disabled": ViewTheme({ disabled: disabled }),
+    "&:hover": ViewTheme({ ...props.hover }),
+    "&:active": ViewTheme({ ...props.active }),
+    "&:disabled": ViewTheme({
+      ...props.disabled,
+      direction: direction ?? "row",
+    }),
   } as Interpolation<Theme>;
 
   //

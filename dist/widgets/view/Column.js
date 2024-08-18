@@ -30,28 +30,27 @@ var mediaQuery_1 = require("../../themes/mediaQuery");
 function Column(props) {
     var _a, _b, _c, _d, _e, _f;
     var _g = props.as, as = _g === void 0 ? "div" : _g, children = props.children, onClick = props.onClick, restProps = __rest(props, ["as", "children", "onClick"]);
-    var direction = props.direction, active = props.active, hover = props.hover, disabled = props.disabled, mediaQuery = props.mediaQuery;
     var elementProps = (0, extandedProps_1.extandedProps)(restProps).elementProps;
-    var mq_styles = (0, mediaQuery_1.extandedMediaQuery)({ mediaQuery: mediaQuery, direction: direction });
-    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, props), { width: (_a = props.width) !== null && _a !== void 0 ? _a : "100%", positionType: (_b = props.positionType) !== null && _b !== void 0 ? _b : "relative", display: (_c = props.display) !== null && _c !== void 0 ? _c : "flex", direction: direction !== null && direction !== void 0 ? direction : "column", userSelect: props.userSelect ? props.userSelect : onClick && "none", cursor: props.cursor ? props.cursor : onClick && "pointer", backgroundRepeat: (_d = props === null || props === void 0 ? void 0 : props.backgroundRepeat) !== null && _d !== void 0 ? _d : "no-repeat", backgroundSize: (_e = props === null || props === void 0 ? void 0 : props.backgroundSize) !== null && _e !== void 0 ? _e : "cover", backgroundPosition: (_f = props === null || props === void 0 ? void 0 : props.backgroundPosition) !== null && _f !== void 0 ? _f : "center" }));
-    var globel_theme = __assign(__assign(__assign({}, view_theme), mq_styles), { "&:hover": (0, view_1.ViewTheme)({ hover: hover }), "&:active": (0, view_1.ViewTheme)({ active: active }), "&:disabled": (0, view_1.ViewTheme)({ disabled: disabled }) });
+    var mq_styles = (0, mediaQuery_1.extandedMediaQuery)({ mediaQuery: restProps.mediaQuery });
+    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, restProps), { width: (_a = restProps.width) !== null && _a !== void 0 ? _a : "100%", positionType: (_b = restProps.positionType) !== null && _b !== void 0 ? _b : "relative", display: (_c = restProps.display) !== null && _c !== void 0 ? _c : "flex", direction: "column", userSelect: restProps.userSelect ? restProps.userSelect : onClick && "none", cursor: restProps.cursor ? restProps.cursor : onClick && "pointer", backgroundRepeat: (_d = restProps === null || restProps === void 0 ? void 0 : restProps.backgroundRepeat) !== null && _d !== void 0 ? _d : "no-repeat", backgroundSize: (_e = restProps === null || restProps === void 0 ? void 0 : restProps.backgroundSize) !== null && _e !== void 0 ? _e : "cover", backgroundPosition: (_f = restProps === null || restProps === void 0 ? void 0 : restProps.backgroundPosition) !== null && _f !== void 0 ? _f : "center" }));
+    var globel_theme = __assign(__assign(__assign({}, view_theme), mq_styles), { "&:hover": (0, view_1.ViewTheme)(__assign({}, restProps.hover)), "&:active": (0, view_1.ViewTheme)(__assign({}, restProps.active)), "&:disabled": (0, view_1.ViewTheme)(__assign({}, restProps.disabled)) });
     //
     //
     if (as === "section")
-        return ((0, jsx_runtime_1.jsx)("section", __assign({ css: globel_theme, className: "flex-column flex-section" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("section", __assign({ css: globel_theme, className: "flex-column flex-section", onClick: onClick }, elementProps, { children: children })));
     if (as === "div")
-        return ((0, jsx_runtime_1.jsx)("div", __assign({ css: globel_theme, className: "flex-column" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("div", __assign({ css: globel_theme, className: "flex-column", onClick: onClick }, elementProps, { children: children })));
     if (as === "nav")
-        return ((0, jsx_runtime_1.jsx)("nav", __assign({ css: globel_theme, className: "flex-column flex-column-nav" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("nav", __assign({ css: globel_theme, className: "flex-column flex-column-nav", onClick: onClick }, elementProps, { children: children })));
     if (as === "aside")
-        return ((0, jsx_runtime_1.jsx)("aside", __assign({ css: globel_theme, className: "flex-column flex-column-aside" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("aside", __assign({ css: globel_theme, className: "flex-column flex-column-aside", onClick: onClick }, elementProps, { children: children })));
     if (as === "form")
-        return ((0, jsx_runtime_1.jsx)("form", __assign({ css: globel_theme, className: "flex-column flex-column-form" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("form", __assign({ css: globel_theme, className: "flex-column flex-column-form", onClick: onClick }, elementProps, { children: children })));
     if (as === "ul")
-        return ((0, jsx_runtime_1.jsx)("ul", __assign({ css: globel_theme, className: "flex-column flex-column-ul" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("ul", __assign({ css: globel_theme, className: "flex-column flex-column-ul", onClick: onClick }, elementProps, { children: children })));
     if (as === "li")
-        return ((0, jsx_runtime_1.jsx)("li", __assign({ css: globel_theme, className: "flex-column flex-column-li" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("li", __assign({ css: globel_theme, className: "flex-column flex-column-li", onClick: onClick }, elementProps, { children: children })));
     if (as === "ol")
-        return ((0, jsx_runtime_1.jsx)("ol", __assign({ css: globel_theme, className: "flex-column flex-column-ol" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("ol", __assign({ css: globel_theme, className: "flex-column flex-column-ol", onClick: onClick }, elementProps, { children: children })));
 }
 exports.default = Column;

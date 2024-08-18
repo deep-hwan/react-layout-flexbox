@@ -13,18 +13,16 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.extandedMediaQuery = void 0;
 var view_1 = require("./view");
-var ViewThemes = function (props) {
-    return (0, view_1.ViewTheme)(props);
-};
+var ViewThemes = function (props) { return (0, view_1.ViewTheme)(props); };
 var extandedMediaQuery = function (_a) {
     var _b;
     var _c, _d, _e, _f, _g, _h;
-    var mediaQuery = _a.mediaQuery, direction = _a.direction;
+    var mediaQuery = _a.mediaQuery;
     var mq_theme = function () {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         if (mediaQuery) {
             return {
-                s1440: __assign(__assign({}, ViewThemes(__assign(__assign({}, mediaQuery.s1440), { direction: direction }))), { "&:hover": ViewThemes(((_a = mediaQuery.s1440) === null || _a === void 0 ? void 0 : _a.hover) || {}), "&:active": ViewThemes(((_b = mediaQuery.s1440) === null || _b === void 0 ? void 0 : _b.active) || {}) }),
+                s1440: __assign(__assign({}, ViewThemes(mediaQuery.s1440 || {})), { "&:hover": ViewThemes(((_a = mediaQuery.s1440) === null || _a === void 0 ? void 0 : _a.hover) || {}), "&:active": ViewThemes(((_b = mediaQuery.s1440) === null || _b === void 0 ? void 0 : _b.active) || {}) }),
                 s1280: __assign(__assign({}, ViewThemes(mediaQuery.s1280 || {})), { "&:hover": ViewThemes(((_c = mediaQuery.s1280) === null || _c === void 0 ? void 0 : _c.hover) || {}), "&:active": ViewThemes(((_d = mediaQuery.s1280) === null || _d === void 0 ? void 0 : _d.active) || {}) }),
                 s1080: __assign(__assign({}, ViewThemes(mediaQuery.s1080 || {})), { "&:hover": ViewThemes(((_e = mediaQuery.s1080) === null || _e === void 0 ? void 0 : _e.hover) || {}), "&:active": ViewThemes(((_f = mediaQuery.s1080) === null || _f === void 0 ? void 0 : _f.active) || {}) }),
                 s768: __assign(__assign({}, ViewThemes(mediaQuery.s768 || {})), { "&:hover": ViewThemes(((_g = mediaQuery.s768) === null || _g === void 0 ? void 0 : _g.hover) || {}), "&:active": ViewThemes(((_h = mediaQuery.s768) === null || _h === void 0 ? void 0 : _h.active) || {}) }),

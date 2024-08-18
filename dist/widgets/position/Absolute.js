@@ -27,31 +27,30 @@ var extandedProps_1 = require("../../utils/extandedProps");
 var view_1 = require("../../themes/view");
 var mediaQuery_1 = require("../../themes/mediaQuery");
 //
-function Absolute(props) {
-    var _a, _b, _c, _d;
-    var _e = props.as, as = _e === void 0 ? "div" : _e, children = props.children, onClick = props.onClick, restProps = __rest(props, ["as", "children", "onClick"]);
-    var direction = props.direction, active = props.active, hover = props.hover, disabled = props.disabled, mediaQuery = props.mediaQuery;
-    var elementProps = (0, extandedProps_1.extandedProps)(restProps).elementProps;
-    var mq_styles = (0, mediaQuery_1.extandedMediaQuery)({ mediaQuery: mediaQuery, direction: direction });
-    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, props), { positionType: "absolute", width: props.width, direction: direction !== null && direction !== void 0 ? direction : "row", display: (_a = props.display) !== null && _a !== void 0 ? _a : "flex", userSelect: props.userSelect ? props.userSelect : onClick && "none", cursor: props.cursor ? props.cursor : onClick && "pointer", backgroundRepeat: (_b = props === null || props === void 0 ? void 0 : props.backgroundRepeat) !== null && _b !== void 0 ? _b : "no-repeat", backgroundSize: (_c = props === null || props === void 0 ? void 0 : props.backgroundSize) !== null && _c !== void 0 ? _c : "cover", backgroundPosition: (_d = props === null || props === void 0 ? void 0 : props.backgroundPosition) !== null && _d !== void 0 ? _d : "center" }));
-    var globel_theme = __assign(__assign(__assign({}, view_theme), mq_styles), { "&:hover": (0, view_1.ViewTheme)({ hover: hover }), "&:active": (0, view_1.ViewTheme)({ active: active }), "&:disabled": (0, view_1.ViewTheme)({ disabled: disabled }) });
+function Absolute(_a) {
+    var _b, _c, _d, _e;
+    var _f = _a.as, as = _f === void 0 ? "div" : _f, children = _a.children, direction = _a.direction, onClick = _a.onClick, props = __rest(_a, ["as", "children", "direction", "onClick"]);
+    var elementProps = (0, extandedProps_1.extandedProps)(props).elementProps;
+    var mq_styles = (0, mediaQuery_1.extandedMediaQuery)({ mediaQuery: props.mediaQuery });
+    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, props), { positionType: "absolute", width: props.width, direction: direction !== null && direction !== void 0 ? direction : "row", display: (_b = props.display) !== null && _b !== void 0 ? _b : "flex", userSelect: props.userSelect ? props.userSelect : onClick && "none", cursor: props.cursor ? props.cursor : onClick && "pointer", backgroundRepeat: (_c = props === null || props === void 0 ? void 0 : props.backgroundRepeat) !== null && _c !== void 0 ? _c : "no-repeat", backgroundSize: (_d = props === null || props === void 0 ? void 0 : props.backgroundSize) !== null && _d !== void 0 ? _d : "cover", backgroundPosition: (_e = props === null || props === void 0 ? void 0 : props.backgroundPosition) !== null && _e !== void 0 ? _e : "center" }));
+    var globel_theme = __assign(__assign(__assign({}, view_theme), mq_styles), { "&:hover": (0, view_1.ViewTheme)(__assign({}, props.hover)), "&:active": (0, view_1.ViewTheme)(__assign({}, props.active)), "&:disabled": (0, view_1.ViewTheme)(__assign(__assign({}, props.disabled), { direction: direction !== null && direction !== void 0 ? direction : "row" })) });
     //
     //
     if (as === "section")
-        return ((0, jsx_runtime_1.jsx)("section", __assign({ css: globel_theme, className: "flex-column flex-section" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("section", __assign({ css: globel_theme, className: "flex-column flex-section", onClick: onClick }, elementProps, { children: children })));
     if (as === "div")
-        return ((0, jsx_runtime_1.jsx)("div", __assign({ css: globel_theme, className: "flex-column" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("div", __assign({ css: globel_theme, className: "flex-column", onClick: onClick }, elementProps, { children: children })));
     if (as === "nav")
-        return ((0, jsx_runtime_1.jsx)("nav", __assign({ css: globel_theme, className: "flex-column flex-column-nav" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("nav", __assign({ css: globel_theme, className: "flex-column flex-column-nav", onClick: onClick }, elementProps, { children: children })));
     if (as === "aside")
-        return ((0, jsx_runtime_1.jsx)("aside", __assign({ css: globel_theme, className: "flex-column flex-column-aside" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("aside", __assign({ css: globel_theme, className: "flex-column flex-column-aside", onClick: onClick }, elementProps, { children: children })));
     if (as === "form")
-        return ((0, jsx_runtime_1.jsx)("form", __assign({ css: globel_theme, className: "flex-column flex-column-form" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("form", __assign({ css: globel_theme, className: "flex-column flex-column-form", onClick: onClick }, elementProps, { children: children })));
     if (as === "ul")
-        return ((0, jsx_runtime_1.jsx)("ul", __assign({ css: globel_theme, className: "flex-column flex-column-ul" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("ul", __assign({ css: globel_theme, className: "flex-column flex-column-ul", onClick: onClick }, elementProps, { children: children })));
     if (as === "li")
-        return ((0, jsx_runtime_1.jsx)("li", __assign({ css: globel_theme, className: "flex-column flex-column-li" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("li", __assign({ css: globel_theme, className: "flex-column flex-column-li", onClick: onClick }, elementProps, { children: children })));
     if (as === "ol")
-        return ((0, jsx_runtime_1.jsx)("ol", __assign({ css: globel_theme, className: "flex-column flex-column-ol" }, elementProps, { children: children })));
+        return ((0, jsx_runtime_1.jsx)("ol", __assign({ css: globel_theme, className: "flex-column flex-column-ol", onClick: onClick }, elementProps, { children: children })));
 }
 exports.default = Absolute;

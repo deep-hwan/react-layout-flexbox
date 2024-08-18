@@ -1,18 +1,14 @@
 import { ViewTheme } from "./view";
 import { MediaQueryType, ViewType } from "../types/view";
 
-const ViewThemes = (props: ViewType & { direction?: "column" | "row" }) =>
-  ViewTheme(props);
+const ViewThemes = (props: ViewType) => ViewTheme(props);
 
-export const extandedMediaQuery = ({
-  mediaQuery,
-  direction,
-}: MediaQueryType & { direction?: "column" | "row" }) => {
+export const extandedMediaQuery = ({ mediaQuery }: MediaQueryType) => {
   const mq_theme = () => {
     if (mediaQuery) {
       return {
         s1440: {
-          ...(ViewThemes({ ...mediaQuery.s1440, direction }) as any),
+          ...(ViewThemes(mediaQuery.s1440 || {}) as any),
           "&:hover": ViewThemes(mediaQuery.s1440?.hover || {}) as any,
           "&:active": ViewThemes(mediaQuery.s1440?.active || {}) as any,
         },

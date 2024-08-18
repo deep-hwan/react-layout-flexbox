@@ -6,10 +6,11 @@ export declare function V({ children }: {
 export declare namespace V {
     var Column: typeof import("./view/Column").default;
     var Row: typeof import("./view/Row").default;
-    var ScrollDragHorizontal: ({ children, maxWidth, gap, scrollBarActive, ...props }: {
+    var ScrollDragHorizontal: ({ children, maxWidth, gap, scrollBarActive, snap, ...props }: {
         children: import("react").ReactNode;
         maxWidth?: number | undefined;
         gap?: number | undefined;
         scrollBarActive?: boolean | undefined;
+        snap?: boolean | undefined;
     } & import("react").HTMLAttributes<HTMLDivElement>) => import("@emotion/react/jsx-runtime").JSX.Element;
 }

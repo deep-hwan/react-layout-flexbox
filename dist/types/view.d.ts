@@ -21,6 +21,7 @@ type PositionType = {
 };
 type FlexType = {
     display?: "none" | "flex";
+    direction?: "row" | "column";
     flex?: number | string;
     reverse?: boolean;
     align?: "start" | "end" | "center" | "stretch" | "baseline";
@@ -96,39 +97,19 @@ type ScrollType = {
 };
 type ViewTypes = FlexType & PositionType & LayoutSizeType & LayerType & BorderTypes & SpaceType & ScrollType;
 type EffectType = {
-    hover?: ViewTypes & {
-        direction?: "row" | "column";
-    };
-    active?: ViewTypes & {
-        direction?: "row" | "column";
-    };
-    disabled?: ViewTypes & {
-        direction?: "row" | "column";
-    };
-    focus?: ViewTypes & {
-        direction?: "row" | "column";
-    };
+    hover?: ViewTypes;
+    active?: ViewTypes;
+    disabled?: ViewTypes;
+    focus?: ViewTypes;
 };
 export type MediaQueryType = {
     mediaQuery?: {
-        s1440?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
-        s1280?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
-        s1080?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
-        s768?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
-        s600?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
-        s428?: {
-            direction?: "row" | "column";
-        } & ViewTypes & EffectType;
+        s1440?: ViewTypes & EffectType;
+        s1280?: ViewTypes & EffectType;
+        s1080?: ViewTypes & EffectType;
+        s768?: ViewTypes & EffectType;
+        s600?: ViewTypes & EffectType;
+        s428?: ViewTypes & EffectType;
     };
 };
 export type ViewType = ViewTypes & EffectType & MediaQueryType;

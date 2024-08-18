@@ -5,6 +5,7 @@ type Types = {
     maxWidth?: number;
     gap?: number;
     scrollBarActive?: boolean;
+    snap?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
-declare const ScrollDragHorizontal: ({ children, maxWidth, gap, scrollBarActive, ...props }: Types) => import("@emotion/react/jsx-runtime").JSX.Element;
+declare const ScrollDragHorizontal: ({ children, maxWidth, gap, scrollBarActive, snap, ...props }: Types) => import("@emotion/react/jsx-runtime").JSX.Element;
 export default ScrollDragHorizontal;

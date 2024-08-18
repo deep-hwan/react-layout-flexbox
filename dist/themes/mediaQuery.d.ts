@@ -1,6 +1,4 @@
 import { MediaQueryType } from "../types/view";
-export declare const extandedMediaQuery: ({ mediaQuery, direction, }: MediaQueryType & {
-    direction?: "row" | "column" | undefined;
-}) => {
+export declare const extandedMediaQuery: ({ mediaQuery }: MediaQueryType) => {
     [x: string]: any;
 };

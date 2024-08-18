@@ -5,7 +5,7 @@ type Types = {
     as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
     children: ReactNode;
 } & Omit<ViewType, "positionType"> & HTMLAttributes<HTMLDivElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement | HTMLElement>;
-export default function Sticky(props: Types & {
+export default function Sticky({ as, children, direction, onClick, ...props }: Types & {
     [key: string]: any;
 }): import("@emotion/react/jsx-runtime").JSX.Element | undefined;
 export {};

@@ -9,7 +9,7 @@ import { extandedMediaQuery } from "../../themes/mediaQuery";
 type Types = {
   as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
   children: ReactNode;
-} & ViewType &
+} & Omit<ViewType, "direction"> &
   HTMLAttributes<
     | HTMLDivElement
     | HTMLFormElement
@@ -22,30 +22,29 @@ type Types = {
 //
 export default function Column(props: Types & { [key: string]: any }) {
   const { as = "div", children, onClick, ...restProps } = props;
-  const { direction, active, hover, disabled, mediaQuery } = props;
 
   const { elementProps } = extandedProps(restProps);
-  const mq_styles = extandedMediaQuery({ mediaQuery, direction });
+  const mq_styles = extandedMediaQuery({ mediaQuery: restProps.mediaQuery });
 
   const view_theme = ViewTheme({
-    ...props,
-    width: props.width ?? "100%",
-    positionType: props.positionType ?? "relative",
-    display: props.display ?? "flex",
-    direction: direction ?? "column",
-    userSelect: props.userSelect ? props.userSelect : onClick && "none",
-    cursor: props.cursor ? props.cursor : onClick && "pointer",
-    backgroundRepeat: props?.backgroundRepeat ?? "no-repeat",
-    backgroundSize: props?.backgroundSize ?? "cover",
-    backgroundPosition: props?.backgroundPosition ?? "center",
+    ...restProps,
+    width: restProps.width ?? "100%",
+    positionType: restProps.positionType ?? "relative",
+    display: restProps.display ?? "flex",
+    direction: "column",
+    userSelect: restProps.userSelect ? restProps.userSelect : onClick && "none",
+    cursor: restProps.cursor ? restProps.cursor : onClick && "pointer",
+    backgroundRepeat: restProps?.backgroundRepeat ?? "no-repeat",
+    backgroundSize: restProps?.backgroundSize ?? "cover",
+    backgroundPosition: restProps?.backgroundPosition ?? "center",
   });
 
   const globel_theme = {
     ...(view_theme as any),
     ...mq_styles,
-    "&:hover": ViewTheme({ hover: hover }),
-    "&:active": ViewTheme({ active: active }),
-    "&:disabled": ViewTheme({ disabled: disabled }),
+    "&:hover": ViewTheme({ ...restProps.hover }),
+    "&:active": ViewTheme({ ...restProps.active }),
+    "&:disabled": ViewTheme({ ...restProps.disabled }),
   };
 
   //

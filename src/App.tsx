@@ -1,5 +1,6 @@
 import React from "react";
 import { V, P } from "../src/package/index";
+import { css } from "@emotion/react";
 
 export default function App() {
   return (
@@ -11,25 +12,20 @@ export default function App() {
         backgroundColor="#f0f0f0"
         borderRadius={20}
         padding={{ vertical: 20, horizontal: 40 }}
-        hover={{ backgroundColor: "#aaa" }}
-        active={{ opacity: 0.3 }}
+        hover={{ backgroundColor: "green" }}
+        active={{ opacity: 0.8, backgroundColor: "#000" }}
         transitionTime={0.3}
         margin={{ bottom: 50 }}
         gap={80}
         mediaQuery={{
           s1280: {
+            direction: "row",
             padding: { all: 150 },
             gap: 210,
             positionType: "static",
             margin: { bottom: 100 },
           },
-          s1080: {
-            backgroundColor: "red",
-            direction: "row",
-            gap: 20,
-            hover: { backgroundColor: "grey" },
-            active: { opacity: 0.1 },
-          },
+
           s600: {
             display: "flex",
 
@@ -65,19 +61,22 @@ export default function App() {
             padding: { all: 20 },
             position: { left: 0, right: "auto", top: 20 },
             axis: { x: "50%", y: 30 },
+            hover: { direction: "column" },
           },
         }}
       >
-        5
+        <p>6</p>
+        <p>5</p>
       </P.Absolute>
 
       <V.ScrollDragHorizontal gap={50}>
         <V.Row
           as="nav"
+          maxWidth={300}
+          minWidth={300}
           backgroundColor="#f0f0f0"
           borderRadius={20}
-          padding={{ vertical: 20, horizontal: 40 }}
-          hover={{ backgroundColor: "#aaa" }}
+          padding={{ vertical: 200, horizontal: 40 }}
           active={{ opacity: 0.3 }}
           transitionTime={0.3}
           gap={50}
@@ -90,16 +89,9 @@ export default function App() {
             s1080: {
               height: "500px",
               crossAlign: "space-between",
-              backgroundColor: "red",
+              backgroundColor: "green",
               gap: 25,
               direction: "column",
-            },
-            s600: {
-              display: "flex",
-              hover: { backgroundColor: "#000" },
-              backgroundColor: "blue",
-
-              padding: { all: 100 },
             },
           }}
           onClick={() => {}}
@@ -110,10 +102,11 @@ export default function App() {
 
         <V.Row
           as="nav"
+          maxWidth={300}
+          minWidth={300}
           backgroundColor="#f0f0f0"
           borderRadius={20}
           padding={{ vertical: 200, horizontal: 40 }}
-          hover={{ backgroundColor: "#aaa" }}
           active={{ opacity: 0.3 }}
           transitionTime={0.3}
           gap={50}
@@ -130,14 +123,20 @@ export default function App() {
               gap: 25,
               direction: "column",
             },
-            s600: {
-              display: "flex",
-              hover: { backgroundColor: "#000" },
-              backgroundColor: "blue",
-
-              padding: { all: 100 },
-            },
           }}
+          onClick={() => {}}
+        >
+          <p>3</p>
+          <p>4</p>
+        </V.Row>
+
+        <V.Row
+          as="nav"
+          maxWidth={300}
+          minWidth={300}
+          backgroundColor="#f0f0f0"
+          borderRadius={20}
+          padding={{ vertical: 200, horizontal: 40 }}
           onClick={() => {}}
         >
           <p>3</p>

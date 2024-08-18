@@ -3,11 +3,16 @@
 import { Interpolation, Theme } from "@emotion/react";
 import { ViewType } from "../types/view";
 
-export const ViewTheme = (
-  props: ViewType & { direction?: "row" | "column" }
-) => {
-  const { direction, reverse, gap, crossGap, border, borderRadius, axis } =
-    props;
+export const ViewTheme = ({
+  direction,
+  reverse,
+  gap,
+  crossGap,
+  border,
+  borderRadius,
+  axis,
+  ...props
+}: ViewType) => {
   const { solid, position = "all", color, shape = "solid" } = border ?? {};
 
   if (!props) return {};
@@ -34,10 +39,7 @@ export const ViewTheme = (
 
     //
     display: props?.display,
-    flexDirection:
-      reverse && props.direction
-        ? props.direction + "-reverse"
-        : props.direction,
+    flexDirection: reverse && direction ? direction + "-reverse" : direction,
     alignItems: props.align,
     justifyContent: props?.crossAlign,
     alignContent: props?.alignContent,
