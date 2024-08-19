@@ -35,8 +35,10 @@ export default function Fixed({
     ...props,
     positionType: "fixed",
     width: props.width,
-    direction: direction ?? "row",
     display: props.display ?? "flex",
+    direction: direction ?? "row",
+    align: props?.align ?? "stretch",
+
     userSelect: props.userSelect ? props.userSelect : onClick && "none",
     cursor: props.cursor ? props.cursor : onClick && "pointer",
     backgroundRepeat: props?.backgroundRepeat ?? "no-repeat",
