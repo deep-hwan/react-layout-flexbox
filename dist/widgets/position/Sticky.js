@@ -28,11 +28,11 @@ var view_1 = require("../../themes/view");
 var mediaQuery_1 = require("../../themes/mediaQuery");
 //
 function Sticky(_a) {
-    var _b, _c, _d, _e;
-    var _f = _a.as, as = _f === void 0 ? "div" : _f, children = _a.children, direction = _a.direction, onClick = _a.onClick, props = __rest(_a, ["as", "children", "direction", "onClick"]);
+    var _b, _c, _d, _e, _f;
+    var _g = _a.as, as = _g === void 0 ? "div" : _g, children = _a.children, direction = _a.direction, onClick = _a.onClick, props = __rest(_a, ["as", "children", "direction", "onClick"]);
     var elementProps = (0, extandedProps_1.extandedProps)(props).elementProps;
     var mq_styles = (0, mediaQuery_1.extandedMediaQuery)({ mediaQuery: props.mediaQuery });
-    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, props), { positionType: "sticky", width: props.width, direction: direction !== null && direction !== void 0 ? direction : "row", display: (_b = props.display) !== null && _b !== void 0 ? _b : "flex", userSelect: props.userSelect ? props.userSelect : onClick && "none", cursor: props.cursor ? props.cursor : onClick && "pointer", backgroundRepeat: (_c = props === null || props === void 0 ? void 0 : props.backgroundRepeat) !== null && _c !== void 0 ? _c : "no-repeat", backgroundSize: (_d = props === null || props === void 0 ? void 0 : props.backgroundSize) !== null && _d !== void 0 ? _d : "cover", backgroundPosition: (_e = props === null || props === void 0 ? void 0 : props.backgroundPosition) !== null && _e !== void 0 ? _e : "center" }));
+    var view_theme = (0, view_1.ViewTheme)(__assign(__assign({}, props), { positionType: "sticky", width: props.width, display: (_b = props.display) !== null && _b !== void 0 ? _b : "flex", direction: direction !== null && direction !== void 0 ? direction : "row", align: (_c = props === null || props === void 0 ? void 0 : props.align) !== null && _c !== void 0 ? _c : "stretch", userSelect: props.userSelect ? props.userSelect : onClick && "none", cursor: props.cursor ? props.cursor : onClick && "pointer", backgroundRepeat: (_d = props === null || props === void 0 ? void 0 : props.backgroundRepeat) !== null && _d !== void 0 ? _d : "no-repeat", backgroundSize: (_e = props === null || props === void 0 ? void 0 : props.backgroundSize) !== null && _e !== void 0 ? _e : "cover", backgroundPosition: (_f = props === null || props === void 0 ? void 0 : props.backgroundPosition) !== null && _f !== void 0 ? _f : "center" }));
     var globel_theme = __assign(__assign(__assign({}, view_theme), mq_styles), { "&:hover": (0, view_1.ViewTheme)(__assign({}, props.hover)), "&:active": (0, view_1.ViewTheme)(__assign({}, props.active)), "&:disabled": (0, view_1.ViewTheme)(__assign(__assign({}, props.disabled), { direction: direction !== null && direction !== void 0 ? direction : "row" })) });
     //
     //
