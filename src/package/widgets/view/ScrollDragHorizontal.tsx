@@ -32,7 +32,6 @@ const ScrollDragHorizontal = ({
 
   const startDrag = useCallback(
     (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
-      // If the target is an input, select, or textarea, don't start drag
       const targetTag = (e.target as HTMLElement).tagName.toLowerCase();
       if (["input", "select", "textarea", "button"].includes(targetTag)) {
         return;
@@ -53,18 +52,14 @@ const ScrollDragHorizontal = ({
     (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
       if (!isDragging) return;
 
-      // If the target is an input, select, or textarea, don't continue drag
-      const targetTag = (e.target as HTMLElement).tagName.toLowerCase();
-      if (["input", "select", "textarea", "button"].includes(targetTag)) {
-        return;
-      }
-
       const clientX = e.type.includes("touch")
         ? (e as TouchEvent).touches[0].clientX
         : (e as MouseEvent).clientX;
-      const walk = clientX - startX;
+      const walk = (clientX - startX) * 1.5; // Increase sensitivity
       if (ref.current) {
-        ref.current.scrollLeft = scrollLeft - walk;
+        requestAnimationFrame(() => {
+          ref.current!.scrollLeft = scrollLeft - walk;
+        });
       }
     },
     [isDragging, startX, scrollLeft]

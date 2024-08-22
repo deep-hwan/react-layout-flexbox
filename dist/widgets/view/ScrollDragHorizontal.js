@@ -33,7 +33,6 @@ var ScrollDragHorizontal = function (_a) {
     var ref = (0, react_1.useRef)(null);
     var startDrag = (0, react_1.useCallback)(function (e) {
         var _a;
-        // If the target is an input, select, or textarea, don't start drag
         var targetTag = e.target.tagName.toLowerCase();
         if (["input", "select", "textarea", "button"].includes(targetTag)) {
             return;
@@ -49,17 +48,14 @@ var ScrollDragHorizontal = function (_a) {
     var doDrag = (0, react_1.useCallback)(function (e) {
         if (!isDragging)
             return;
-        // If the target is an input, select, or textarea, don't continue drag
-        var targetTag = e.target.tagName.toLowerCase();
-        if (["input", "select", "textarea", "button"].includes(targetTag)) {
-            return;
-        }
         var clientX = e.type.includes("touch")
             ? e.touches[0].clientX
             : e.clientX;
-        var walk = clientX - startX;
+        var walk = (clientX - startX) * 1.5; // Increase sensitivity
         if (ref.current) {
-            ref.current.scrollLeft = scrollLeft - walk;
+            requestAnimationFrame(function () {
+                ref.current.scrollLeft = scrollLeft - walk;
+            });
         }
     }, [isDragging, startX, scrollLeft]);
     var endDrag = (0, react_1.useCallback)(function () {
