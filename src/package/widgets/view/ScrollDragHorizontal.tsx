@@ -14,7 +14,7 @@ type Types = {
   maxWidth?: number;
   gap?: number;
   scrollBarActive?: boolean;
-  snap?: boolean; // Added snap boolean to control snapping
+  snap?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 const ScrollDragHorizontal = ({
@@ -22,7 +22,7 @@ const ScrollDragHorizontal = ({
   maxWidth,
   gap,
   scrollBarActive = false,
-  snap = false, // Default snap is false
+  snap = false,
   ...props
 }: Types) => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -32,13 +32,19 @@ const ScrollDragHorizontal = ({
 
   const startDrag = useCallback(
     (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
+      // If the target is an input, select, or textarea, don't start drag
+      const targetTag = (e.target as HTMLElement).tagName.toLowerCase();
+      if (["input", "select", "textarea", "button"].includes(targetTag)) {
+        return;
+      }
+
       const clientX = e.type.includes("touch")
         ? (e as TouchEvent).touches[0].clientX
         : (e as MouseEvent).clientX;
       setIsDragging(true);
       setStartX(clientX);
       setScrollLeft(ref.current?.scrollLeft || 0);
-      e.preventDefault(); // Prevent text selection during drag
+      e.preventDefault();
     },
     []
   );
@@ -46,6 +52,13 @@ const ScrollDragHorizontal = ({
   const doDrag = useCallback(
     (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
       if (!isDragging) return;
+
+      // If the target is an input, select, or textarea, don't continue drag
+      const targetTag = (e.target as HTMLElement).tagName.toLowerCase();
+      if (["input", "select", "textarea", "button"].includes(targetTag)) {
+        return;
+      }
+
       const clientX = e.type.includes("touch")
         ? (e as TouchEvent).touches[0].clientX
         : (e as MouseEvent).clientX;
@@ -60,14 +73,12 @@ const ScrollDragHorizontal = ({
   const endDrag = useCallback(() => {
     setIsDragging(false);
     if (snap && ref.current) {
-      // Snap only if enabled and the end drag is near the start point
       const elements = Array.from(ref.current.children) as HTMLElement[];
       const closestElement = elements.reduce(
         (closest, child) => {
           const box = child.getBoundingClientRect();
           const offset = box.left - ref.current!.getBoundingClientRect().left;
           if (Math.abs(offset) < 50) {
-            // Snap if within 50px of start
             return { offset, element: child };
           }
           return closest;
@@ -78,7 +89,6 @@ const ScrollDragHorizontal = ({
         }
       );
 
-      // Smoothly snap to the nearest child element if it's close enough
       if (closestElement.element) {
         closestElement.element.scrollIntoView({
           behavior: "smooth",

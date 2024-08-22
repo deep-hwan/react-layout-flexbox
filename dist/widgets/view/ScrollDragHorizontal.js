@@ -26,25 +26,34 @@ var jsx_runtime_1 = require("@emotion/react/jsx-runtime");
 /** @jsxImportSource @emotion/react */
 var react_1 = require("react");
 var ScrollDragHorizontal = function (_a) {
-    var children = _a.children, maxWidth = _a.maxWidth, gap = _a.gap, _b = _a.scrollBarActive, scrollBarActive = _b === void 0 ? false : _b, _c = _a.snap, snap = _c === void 0 ? false : _c, // Default snap is false
-    props = __rest(_a, ["children", "maxWidth", "gap", "scrollBarActive", "snap"]);
+    var children = _a.children, maxWidth = _a.maxWidth, gap = _a.gap, _b = _a.scrollBarActive, scrollBarActive = _b === void 0 ? false : _b, _c = _a.snap, snap = _c === void 0 ? false : _c, props = __rest(_a, ["children", "maxWidth", "gap", "scrollBarActive", "snap"]);
     var _d = (0, react_1.useState)(false), isDragging = _d[0], setIsDragging = _d[1];
     var _e = (0, react_1.useState)(0), startX = _e[0], setStartX = _e[1];
     var _f = (0, react_1.useState)(0), scrollLeft = _f[0], setScrollLeft = _f[1];
     var ref = (0, react_1.useRef)(null);
     var startDrag = (0, react_1.useCallback)(function (e) {
         var _a;
+        // If the target is an input, select, or textarea, don't start drag
+        var targetTag = e.target.tagName.toLowerCase();
+        if (["input", "select", "textarea", "button"].includes(targetTag)) {
+            return;
+        }
         var clientX = e.type.includes("touch")
             ? e.touches[0].clientX
             : e.clientX;
         setIsDragging(true);
         setStartX(clientX);
         setScrollLeft(((_a = ref.current) === null || _a === void 0 ? void 0 : _a.scrollLeft) || 0);
-        e.preventDefault(); // Prevent text selection during drag
+        e.preventDefault();
     }, []);
     var doDrag = (0, react_1.useCallback)(function (e) {
         if (!isDragging)
             return;
+        // If the target is an input, select, or textarea, don't continue drag
+        var targetTag = e.target.tagName.toLowerCase();
+        if (["input", "select", "textarea", "button"].includes(targetTag)) {
+            return;
+        }
         var clientX = e.type.includes("touch")
             ? e.touches[0].clientX
             : e.clientX;
@@ -56,13 +65,11 @@ var ScrollDragHorizontal = function (_a) {
     var endDrag = (0, react_1.useCallback)(function () {
         setIsDragging(false);
         if (snap && ref.current) {
-            // Snap only if enabled and the end drag is near the start point
             var elements = Array.from(ref.current.children);
             var closestElement = elements.reduce(function (closest, child) {
                 var box = child.getBoundingClientRect();
                 var offset = box.left - ref.current.getBoundingClientRect().left;
                 if (Math.abs(offset) < 50) {
-                    // Snap if within 50px of start
                     return { offset: offset, element: child };
                 }
                 return closest;
@@ -70,7 +77,6 @@ var ScrollDragHorizontal = function (_a) {
                 offset: Number.POSITIVE_INFINITY,
                 element: null,
             });
-            // Smoothly snap to the nearest child element if it's close enough
             if (closestElement.element) {
                 closestElement.element.scrollIntoView({
                     behavior: "smooth",
