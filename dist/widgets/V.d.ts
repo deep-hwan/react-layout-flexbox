@@ -4,8 +4,14 @@ export declare function V({ children }: {
     children: ReactElement;
 }): ReactElement<any, string | import("react").JSXElementConstructor<any>>;
 export declare namespace V {
-    var Column: typeof import("./view/Column").default;
-    var Row: typeof import("./view/Row").default;
+    var Column: import("react").ForwardRefExoticComponent<{
+        as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol" | undefined;
+        children: import("react").ReactNode;
+    } & Omit<import("..").ViewType, "direction"> & import("react").HTMLAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement> & import("react").RefAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement>>;
+    var Row: import("react").ForwardRefExoticComponent<{
+        as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol" | undefined;
+        children: import("react").ReactNode;
+    } & Omit<import("..").ViewType, "direction"> & import("react").HTMLAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement> & import("react").RefAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement>>;
     var ScrollDragHorizontal: ({ children, maxWidth, gap, scrollBarActive, snap, ...props }: {
         children: import("react").ReactNode;
         maxWidth?: number | undefined;

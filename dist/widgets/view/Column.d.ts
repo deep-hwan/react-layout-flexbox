@@ -1,11 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { HTMLAttributes, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { ViewType } from "../../types/view";
-type Types = {
-    as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
+declare const Column: React.ForwardRefExoticComponent<{
+    as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol" | undefined;
     children: ReactNode;
-} & Omit<ViewType, "direction"> & HTMLAttributes<HTMLDivElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement | HTMLElement>;
-export default function Column(props: Types & {
-    [key: string]: any;
-}): import("@emotion/react/jsx-runtime").JSX.Element | undefined;
-export {};
+} & Omit<ViewType, "direction"> & React.HTMLAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement> & React.RefAttributes<HTMLDivElement | HTMLElement | HTMLFormElement | HTMLLIElement | HTMLOListElement | HTMLUListElement>>;
+export default Column;

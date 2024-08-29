@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { HTMLAttributes, ReactNode } from "react";
+import React, { forwardRef, HTMLAttributes, ReactNode } from "react";
 import { ViewType } from "../../types/view";
 import { extandedProps } from "../../utils/extandedProps";
 import { ViewTheme } from "../../themes/view";
@@ -20,7 +20,15 @@ type Types = {
   >;
 
 //
-export default function Row(props: Types & { [key: string]: any }) {
+const Row = forwardRef<
+  | HTMLDivElement
+  | HTMLFormElement
+  | HTMLLIElement
+  | HTMLOListElement
+  | HTMLUListElement
+  | HTMLElement,
+  Types
+>((props, ref) => {
   const { as = "div", children, onClick, ...restProps } = props;
 
   const { elementProps } = extandedProps(restProps);
@@ -40,7 +48,7 @@ export default function Row(props: Types & { [key: string]: any }) {
     backgroundPosition: restProps?.backgroundPosition ?? "center",
   });
 
-  const globel_theme = {
+  const global_theme = {
     ...(view_theme as any),
     ...mq_styles,
     "&:hover": ViewTheme({ ...restProps.hover }),
@@ -48,101 +56,19 @@ export default function Row(props: Types & { [key: string]: any }) {
     "&:disabled": ViewTheme({ ...restProps.disabled }),
   };
 
-  //
-  //
-  if (as === "section")
-    return (
-      <section
-        css={globel_theme}
-        className="flex-column flex-section"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </section>
-    );
+  const Element = as || "div";
 
-  if (as === "div")
-    return (
-      <div
-        css={globel_theme}
-        className="flex-column"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </div>
-    );
+  return (
+    <Element
+      css={global_theme}
+      className={`flex-row flex-row-${as}`} // Update class names to reflect 'row' rather than 'column'
+      onClick={onClick}
+      {...elementProps}
+      ref={ref} // Forward the ref to the appropriate element
+    >
+      {children}
+    </Element>
+  );
+});
 
-  if (as === "nav")
-    return (
-      <nav
-        css={globel_theme}
-        className="flex-column flex-column-nav"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </nav>
-    );
-
-  if (as === "aside")
-    return (
-      <aside
-        css={globel_theme}
-        className="flex-column flex-column-aside"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </aside>
-    );
-
-  if (as === "form")
-    return (
-      <form
-        css={globel_theme}
-        className="flex-column flex-column-form"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </form>
-    );
-
-  if (as === "ul")
-    return (
-      <ul
-        css={globel_theme}
-        className="flex-column flex-column-ul"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </ul>
-    );
-
-  if (as === "li")
-    return (
-      <li
-        css={globel_theme}
-        className="flex-column flex-column-li"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </li>
-    );
-
-  if (as === "ol")
-    return (
-      <ol
-        css={globel_theme}
-        className="flex-column flex-column-ol"
-        onClick={onClick}
-        {...elementProps}
-      >
-        {children}
-      </ol>
-    );
-}
+export default Row;
