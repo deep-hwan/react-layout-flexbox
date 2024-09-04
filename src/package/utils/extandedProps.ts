@@ -69,6 +69,7 @@ const layerKeys = [
   "userSelect",
   "transitionTime",
   "opacity",
+  "scale",
 ];
 
 const borderKeys = ["border", "borderRadius"];

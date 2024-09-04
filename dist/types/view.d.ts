@@ -56,6 +56,7 @@ type LayerType = {
     transitionTime?: number;
     cursor?: "default" | "grab" | "pointer" | "zoom";
     opacity?: number;
+    scale?: number;
     userSelect?: "none" | "auto" | "text" | "contain" | "all";
 };
 type BorderTypes = {

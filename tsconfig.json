@@ -19,6 +19,6 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "include": ["src/package/**/*.tsx", "src/package/**/*.ts"],
+  "include": ["src/package/**/*.tsx", "src/package/**/*.ts", "src/lib"],
   "exclude": ["node_modules"]
 }
