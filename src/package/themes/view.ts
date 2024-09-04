@@ -78,7 +78,6 @@ export const ViewTheme = ({
       props?.transitionTime && `${props?.transitionTime}s ease-in-out`,
     cursor: props?.cursor,
     opacity: props.opacity,
-    scale: props?.scale,
     userSelect: props.userSelect,
 
     //

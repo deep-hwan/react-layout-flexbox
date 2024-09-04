@@ -5,10 +5,6 @@ import { extandedProps } from "../../utils/extandedProps";
 import { ViewTheme } from "../../themes/view";
 import { extandedMediaQuery } from "../../themes/mediaQuery";
 
-interface ViewThemeStyles {
-  [key: string]: string | number | undefined;
-}
-
 //
 type Types = {
   as?: "section" | "nav" | "div" | "aside" | "form" | "ul" | "li" | "ol";
@@ -50,10 +46,10 @@ const Column = forwardRef<
     backgroundRepeat: restProps?.backgroundRepeat ?? "no-repeat",
     backgroundSize: restProps?.backgroundSize ?? "cover",
     backgroundPosition: restProps?.backgroundPosition ?? "center",
-  }) as ViewThemeStyles;
+  });
 
   const global_theme = {
-    ...view_theme,
+    ...(view_theme as any),
     ...mq_styles,
     "&:hover": ViewTheme({ ...restProps.hover }),
     "&:active": ViewTheme({ ...restProps.active }),

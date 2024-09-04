@@ -1,4 +1,5 @@
-import { HTMLAttributes, ReactNode } from 'react';
+/** @jsxImportSource @emotion/react */
+import { HTMLAttributes, ReactNode } from "react";
 type Types = {
     children: ReactNode;
     maxWidth?: number;

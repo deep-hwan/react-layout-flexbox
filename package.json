@@ -1,12 +1,32 @@
 {
   "name": "react-layout-flexbox",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "files": [
     "dist",
     "README.md"
   ],
-  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "browser": "./browser/specific/main.js",
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.16.2",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "eslint-plugin-emotion": "^11.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5",
+    "vite": "^5.4.2",
+    "web-vitals": "^3.5.2"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -26,28 +46,23 @@
     "eject": "react-scripts eject",
     "prepare": "rimraf dist && mkdir dist && tsc"
   },
-  "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "eslint-plugin-emotion": "^11.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@types/node": "^22.5.2",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react-swc": "^3.5.0",
-    "eslint": "^9.9.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.9",
-    "globals": "^15.9.0",
-    "path": "^0.12.7",
-    "rimraf": "^6.0.1",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.1.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "description": "This method is very similar to FlatList in React-Native. Try FlatList in React.js right now",
   "repository": {
@@ -63,5 +78,8 @@
     "react-ui"
   ],
   "author": "deep",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vite-plugin-dts": "^3.7.2"
+  }
 }

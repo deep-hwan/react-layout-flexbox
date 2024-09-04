@@ -1,5 +1,6 @@
 import React from "react";
 import { V, P } from "../src/package/index";
+import { css } from "@emotion/react";
 
 export default function App() {
   return (
