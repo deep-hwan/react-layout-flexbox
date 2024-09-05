@@ -1,6 +1,5 @@
 import React from "react";
 import { V, P } from "../src/package/index";
-import { css } from "@emotion/react";
 
 export default function App() {
   return (
@@ -12,12 +11,12 @@ export default function App() {
         backgroundColor="#f0f0f0"
         borderRadius={20}
         padding={{ vertical: 20, horizontal: 40 }}
-        hover={{ backgroundColor: "green" }}
-        active={{ opacity: 0.8, backgroundColor: "#000" }}
+        _hover={{ backgroundColor: "green" }}
+        _active={{ opacity: 0.8, backgroundColor: "#000" }}
         transitionTime={0.3}
         margin={{ bottom: 50 }}
         gap={80}
-        mediaQuery={{
+        _mediaQuery={{
           s1280: {
             direction: "row",
             padding: { all: 150 },
@@ -28,10 +27,8 @@ export default function App() {
 
           s600: {
             display: "flex",
-
-            hover: { backgroundColor: "#000" },
+            _hover: { backgroundColor: "#000" },
             backgroundColor: "blue",
-
             padding: { all: 100 },
           },
         }}
@@ -52,16 +49,16 @@ export default function App() {
       <P.Absolute
         as="nav"
         position={{ top: 0, right: 0 }}
-        disabled={{ position: { top: 0 } }}
+        _disabled={{ position: { top: 0 } }}
         backgroundColor="#eee"
-        mediaQuery={{
+        _mediaQuery={{
           s1280: {
             positionType: "fixed",
             backgroundColor: "#fff",
             padding: { all: 20 },
             position: { left: 0, right: "auto", top: 20 },
             axis: { x: "50%", y: 30 },
-            hover: { direction: "column" },
+            _hover: { direction: "column" },
           },
         }}
       >
@@ -77,14 +74,14 @@ export default function App() {
           backgroundColor="#f0f0f0"
           borderRadius={20}
           padding={{ vertical: 200, horizontal: 40 }}
-          active={{ opacity: 0.3 }}
+          _active={{ opacity: 0.3 }}
           transitionTime={0.3}
           gap={50}
-          mediaQuery={{
+          _mediaQuery={{
             s1280: {
               padding: { all: 20 },
               gap: 20,
-              hover: { backgroundColor: "blue" },
+              _hover: { backgroundColor: "blue" },
             },
             s1080: {
               height: "500px",
@@ -107,14 +104,14 @@ export default function App() {
           backgroundColor="#f0f0f0"
           borderRadius={20}
           padding={{ vertical: 200, horizontal: 40 }}
-          active={{ opacity: 0.3 }}
+          _active={{ opacity: 0.3 }}
           transitionTime={0.3}
           gap={50}
-          mediaQuery={{
+          _mediaQuery={{
             s1280: {
               padding: { all: 20 },
               gap: 20,
-              hover: { backgroundColor: "blue" },
+              _hover: { backgroundColor: "blue" },
             },
             s1080: {
               height: "500px",

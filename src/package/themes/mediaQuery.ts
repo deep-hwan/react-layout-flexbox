@@ -3,39 +3,39 @@ import { MediaQueryType, ViewType } from "../types/view";
 
 const ViewThemes = (props: ViewType) => ViewTheme(props);
 
-export const extandedMediaQuery = ({ mediaQuery }: MediaQueryType) => {
+export const extandedMediaQuery = ({ _mediaQuery }: MediaQueryType) => {
   const mq_theme = () => {
-    if (mediaQuery) {
+    if (_mediaQuery) {
       return {
         s1440: {
-          ...(ViewThemes(mediaQuery.s1440 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s1440?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s1440?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s1440 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s1440?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s1440?._active || {}) as any,
         },
         s1280: {
-          ...(ViewThemes(mediaQuery.s1280 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s1280?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s1280?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s1280 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s1280?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s1280?._active || {}) as any,
         },
         s1080: {
-          ...(ViewThemes(mediaQuery.s1080 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s1080?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s1080?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s1080 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s1080?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s1080?._active || {}) as any,
         },
         s768: {
-          ...(ViewThemes(mediaQuery.s768 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s768?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s768?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s768 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s768?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s768?._active || {}) as any,
         },
         s600: {
-          ...(ViewThemes(mediaQuery.s600 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s600?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s600?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s600 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s600?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s600?._active || {}) as any,
         },
         s428: {
-          ...(ViewThemes(mediaQuery.s428 || {}) as any),
-          "&:hover": ViewThemes(mediaQuery.s428?.hover || {}) as any,
-          "&:active": ViewThemes(mediaQuery.s428?.active || {}) as any,
+          ...(ViewThemes(_mediaQuery.s428 || {}) as any),
+          "&:hover": ViewThemes(_mediaQuery.s428?._hover || {}) as any,
+          "&:active": ViewThemes(_mediaQuery.s428?._active || {}) as any,
         },
       };
     }

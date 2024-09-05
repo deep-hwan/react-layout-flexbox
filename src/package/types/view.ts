@@ -163,16 +163,16 @@ type ViewTypes = FlexType &
 //
 //
 type EffectType = {
-  hover?: ViewTypes;
-  active?: ViewTypes;
-  disabled?: ViewTypes;
-  focus?: ViewTypes;
+  _hover?: ViewTypes;
+  _active?: ViewTypes;
+  _disabled?: ViewTypes;
+  _focus?: ViewTypes;
 };
 
 //
 //
 export type MediaQueryType = {
-  mediaQuery?: {
+  _mediaQuery?: {
     s1440?: ViewTypes & EffectType;
     s1280?: ViewTypes & EffectType;
     s1080?: ViewTypes & EffectType;

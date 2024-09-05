@@ -31,7 +31,7 @@ const Absolute = forwardRef<
   Types
 >(({ as = "div", children, direction, onClick, ...props }, ref) => {
   const { elementProps } = extandedProps(props);
-  const mq_styles = extandedMediaQuery({ mediaQuery: props.mediaQuery });
+  const mq_styles = extandedMediaQuery({ _mediaQuery: props._mediaQuery });
 
   const view_theme = ViewTheme({
     ...props,
@@ -50,10 +50,10 @@ const Absolute = forwardRef<
   const global_theme = {
     ...(view_theme as any),
     ...mq_styles,
-    "&:hover": ViewTheme({ ...props.hover }),
-    "&:active": ViewTheme({ ...props.active }),
+    "&:hover": ViewTheme({ ...props._hover }),
+    "&:active": ViewTheme({ ...props._active }),
     "&:disabled": ViewTheme({
-      ...props.disabled,
+      ...props._disabled,
       direction: direction ?? "row",
     }),
   } as Interpolation<Theme>;

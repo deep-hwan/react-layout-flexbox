@@ -32,7 +32,7 @@ const Row = forwardRef<
   const { as = "div", children, onClick, ...restProps } = props;
 
   const { elementProps } = extandedProps(restProps);
-  const mq_styles = extandedMediaQuery({ mediaQuery: restProps.mediaQuery });
+  const mq_styles = extandedMediaQuery({ _mediaQuery: restProps._mediaQuery });
 
   const view_theme = ViewTheme({
     ...restProps,
@@ -51,9 +51,9 @@ const Row = forwardRef<
   const global_theme = {
     ...(view_theme as any),
     ...mq_styles,
-    "&:hover": ViewTheme({ ...restProps.hover }),
-    "&:active": ViewTheme({ ...restProps.active }),
-    "&:disabled": ViewTheme({ ...restProps.disabled }),
+    "&:hover": ViewTheme({ ...restProps._hover }),
+    "&:active": ViewTheme({ ...restProps._active }),
+    "&:disabled": ViewTheme({ ...restProps._disabled }),
   };
 
   const Element = as || "div";

@@ -80,5 +80,5 @@ var layerKeys = [
 var borderKeys = ["border", "borderRadius"];
 var spaceKeys = ["padding", "margin"];
 var scollKeys = ["scroll"];
-var hoverActiveKeys = ["active", "focus", "hover", "disabled"];
-var mediaQueryKeys = ["mediaQuery"];
+var hoverActiveKeys = ["_active", "_focus", "_hover", "_disabled"];
+var mediaQueryKeys = ["_mediaQuery"];

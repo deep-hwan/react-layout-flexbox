@@ -77,6 +77,6 @@ const spaceKeys = ["padding", "margin"];
 
 const scollKeys = ["scroll"];
 
-const hoverActiveKeys = ["active", "focus", "hover", "disabled"];
+const hoverActiveKeys = ["_active", "_focus", "_hover", "_disabled"];
 
-const mediaQueryKeys = ["mediaQuery"];
+const mediaQueryKeys = ["_mediaQuery"];
