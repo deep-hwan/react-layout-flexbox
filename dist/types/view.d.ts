@@ -36,6 +36,7 @@ type FlexType = {
     gap?: number;
     crossGap?: number;
     order?: number;
+    scale?: number;
 };
 type LayerType = {
     backgroundColor?: string;

@@ -81,6 +81,7 @@ export const ViewTheme = ({
     rotate:
       typeof props.rotate === "number" ? props.rotate + "deg" : props.rotate,
     userSelect: props.userSelect,
+    scale: props.scale,
 
     //
     border:

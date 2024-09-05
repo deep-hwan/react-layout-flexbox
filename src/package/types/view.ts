@@ -52,6 +52,7 @@ type FlexType = {
   gap?: number;
   crossGap?: number;
   order?: number;
+  scale?: number;
 };
 
 //

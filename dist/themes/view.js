@@ -72,6 +72,7 @@ var ViewTheme = function (_a) {
         opacity: props.opacity,
         rotate: typeof props.rotate === "number" ? props.rotate + "deg" : props.rotate,
         userSelect: props.userSelect,
+        scale: props.scale,
         //
         border: !!solid && position === "all"
             ? "".concat(solid, "px ").concat(shape, " ").concat(color)
